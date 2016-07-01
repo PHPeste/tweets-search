@@ -15,4 +15,6 @@ $method = 'GET';
 
 $twitter = new TwitterAPIExchange($settings);
 
+header('Access-Control-Allow-Origin: *');
+
 echo $twitter->request($url, $method, $params);
