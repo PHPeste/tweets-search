@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $settings = array(
 	'oauth_access_token' => getenv('ACCESS_TOKEN'),
@@ -9,10 +9,8 @@ $settings = array(
 	'consumer_secret' =>  getenv('CONSUMER_SECRET'),
 );
 
-//print_r($settings); die;
-
 $url 	= 'https://api.twitter.com/1.1/favorites/list.json';
-$params = '?count=' . $_GET['count'];
+$params = isset($_GET['count']) ? '?count=' . $_GET['count'] : '';
 $method = 'GET';
 
 $twitter = new TwitterAPIExchange($settings);
